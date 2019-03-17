@@ -13,7 +13,7 @@ imagerect = character.get_rect()
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption('kristo idioti')
 
-
+print('hello')
 
 
 running = Trues

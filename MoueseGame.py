@@ -12,6 +12,9 @@ imagerect = character.get_rect()
 turret = pygame.image.load('Sprites/Turret.png')
 turretrect = turret.get_rect()
 
+RedBall = pygame.image.load('Sprites/RedBall.png')
+RedBallrect = RedBall.get_rect()
+
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption('kot')
 
@@ -21,9 +24,11 @@ while running:
   screen.fill(background_colour)
   screen.blit(character, imagerect)
   screen.blit(turret, turretrect)
+  screen.blit(RedBall, RedBallrect)
   pygame.display.flip()
   imagerect.center = (x, y)
   turretrect.center = (150, 15)
+  RedBallrect.center = (150, 35)
   keys = pygame.key.get_pressed() 
   
   if keys[pygame.K_SPACE]:

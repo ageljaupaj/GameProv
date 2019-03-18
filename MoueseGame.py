@@ -4,6 +4,11 @@ background_colour = (35, 35, 35)
 
 x = 150
 y = 150
+
+RedBAll_x = 150
+RedBAll_y = 35
+
+ball_speed = 0.03
 speed = 0.03
 
 character = pygame.image.load('Sprites/MouseCharacter.png')
@@ -28,13 +33,18 @@ while running:
   pygame.display.flip()
   imagerect.center = (x, y)
   turretrect.center = (150, 15)
-  RedBallrect.center = (150, 35)
+  RedBallrect.center = (RedBAll_x, RedBAll_y)
   keys = pygame.key.get_pressed() 
   
+  if x > 150 or x < 150 or y < 150 or y > 150:
+    RedBAll_y = RedBAll_y + ball_speed
+
   if keys[pygame.K_SPACE]:
-    speed = 0.01
+    speed = 0.015
+    ball_speed = 0.01
   if keys[pygame.K_SPACE] == False:
     speed = 0.03
+    ball_speed = 0.03
   
   if keys[pygame.K_w]:
     x = x + 0

@@ -5,6 +5,7 @@ background_colour = (35, 35, 35)
 x = 150
 y = 150
 
+life = 3
 
 
 RedBAll_x = 150
@@ -78,7 +79,24 @@ while running:
   if RedBAll_y > 310:
     RedBAll_x = 150
     RedBAll_y = 35
-    
+  if RedBAll_y < -10:
+    RedBAll_x = 150
+    RedBAll_y = 35
+  if RedBAll_x < -10:
+    RedBAll_x = 150
+    RedBAll_y = 35
+  if RedBAll_x > 310:
+    RedBAll_x = 150
+    RedBAll_y = 35
+
+  if RedBallrect.colliderect(imagerect):
+    RedBAll_x = 150
+    RedBAll_y = 35
+    life = life - 1
+    print(life)
+
+  if life < 1:
+    running = False
     
   pygame.display.flip()
 

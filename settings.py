@@ -27,5 +27,5 @@ RedBall_2_x = 290
 RedBall_2_y = 150
 
 #Speed
-ball_speed = 0.03
+ball_speed = 0.035
 speed = 0.03

@@ -15,8 +15,8 @@ RedBallrect_2 = RedBall.get_rect()
 
 Coin = pygame.image.load('Sprites/Coin.png')
 Coinrect = RedBall.get_rect()
-
-#Game's window
+                   
+#Game's windowd
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption('kot')
 
@@ -24,7 +24,7 @@ playermoving = False
 
 running = True
 while running:
-#Ndertimi i lojes(Backgrounds, pngs, rect etc.)
+  #Ndertimi i lojes(Backgrounds, pngs, rect etc.)
   screen.fill(background_colour)
   screen.blit(character, imagerect)
   screen.blit(turret, turretrect)
@@ -37,7 +37,7 @@ while running:
   RedBallrect.center = (RedBAll_x, RedBAll_y)
   RedBallrect_2.center = (RedBall_2_x, RedBall_2_y)
   keys = pygame.key.get_pressed() 
-#Perplasia ne mure 
+  #Perplasia ne mure 
   if x < 10:
     x = x + speed
   if x > 290:
@@ -46,22 +46,22 @@ while running:
     y = y + speed
   if y > 290:
     y = y - speed
-#RedBallat
+  #RedBallat
   if playermoving:
     screen.blit(RedBall, RedBallrect)
     RedBAll_y = RedBAll_y + ball_speed
     screen.blit(RedBall, RedBallrect_2)
     RedBall_2_x = RedBall_2_x - ball_speed
     
-#Slowmotion
+  #Slowmotion
   if keys[pygame.K_SPACE]:
     speed = 0.015
     ball_speed = 0.01
   
   if keys[pygame.K_SPACE] == False:
     speed = 0.03
-    ball_speed = 0.03
-#Movement
+    ball_speed = 0.035
+  #Movement
   if keys[pygame.K_w]: 
     x = x + 0
     y = y -speed
@@ -78,7 +78,7 @@ while running:
     x = x + speed
     y = y + 0
     playermoving = True
-#Kthimi prap i Redballit 
+  #Kthimi prap i Redballit 
   if RedBAll_y > 310:
     RedBAll_x = 150
     RedBAll_y = 35
@@ -104,7 +104,7 @@ while running:
   if RedBall_2_x > 310:
     RedBall_2_x = 290
     RedBall_2_y = 150
-#Collusion
+  #Collusion
   if RedBallrect.colliderect(imagerect):
     RedBAll_x = 150
     RedBAll_y = 35
@@ -122,13 +122,14 @@ while running:
     COINy = random.uniform(20, 280)
     score = score + 1
     
-#Jeta
+  #Jeta
   if life == 0:
     print('Your score score is', score, "!")
     running = False
     
   pygame.display.flip()
-#Game's close
+  #Game's close
   for event in pygame.event.get():
     if event.type == pygame.QUIT:
       running = False
+      

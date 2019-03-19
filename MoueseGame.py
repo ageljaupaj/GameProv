@@ -1,4 +1,6 @@
 import pygame
+import random
+
 background_colour = (35, 35, 35)
 (width, height) = (300, 300)
 
@@ -7,6 +9,10 @@ y = 150
 
 life = 3
 
+COINx = random.uniform(20, 280)
+COINy = random.uniform(20, 280)
+
+score = 0
 
 RedBAll_x = 150
 RedBAll_y = 35
@@ -23,6 +29,9 @@ turretrect = turret.get_rect()
 RedBall = pygame.image.load('Sprites/RedBall.png')
 RedBallrect = RedBall.get_rect()
 
+Coin = pygame.image.load('Sprites/Coin.png')
+Coinrect = RedBall.get_rect()
+
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption('kot')
 
@@ -33,6 +42,8 @@ while running:
   screen.fill(background_colour)
   screen.blit(character, imagerect)
   screen.blit(turret, turretrect)
+  screen.blit(Coin, Coinrect)
+  Coinrect.center = (COINx, COINy)
   imagerect.center = (x, y)
   turretrect.center = (150, 15)
   RedBallrect.center = (RedBAll_x, RedBAll_y)
@@ -93,7 +104,12 @@ while running:
     RedBAll_x = 150
     RedBAll_y = 35
     life = life - 1
-    print(life)
+    print('You are left with', life, 'HP!')
+  if imagerect.colliderect(Coinrect):
+    COINx = random.uniform(20, 280)
+    COINy = random.uniform(20, 280)
+    score = score + 1
+    print('Score is', score, "!")
 
   if life < 1:
     running = False

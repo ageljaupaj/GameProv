@@ -1,20 +1,8 @@
 import pygame
 from settings import *
+from Sprite import *
 
-#Image loads
-character = pygame.image.load('Sprites/MouseCharacter.png')
-imagerect = character.get_rect()
 
-turret = pygame.image.load('Sprites/Turret.png')
-turretrect = turret.get_rect()
-turretrect2 = turret.get_rect()
-
-RedBall = pygame.image.load('Sprites/RedBall.png')
-RedBallrect = RedBall.get_rect()
-RedBallrect_2 = RedBall.get_rect()
-
-Coin = pygame.image.load('Sprites/Coin.png')
-Coinrect = RedBall.get_rect()
                    
 #Game's windowd
 screen = pygame.display.set_mode((width, height))
@@ -115,7 +103,10 @@ while running:
     RedBall_2_x = 290
     RedBall_2_y = 150
     life = life - 1
-    print('You are left with', life, 'HP!')
+    if life > 0:
+      print('You are left with', life, 'HP!')
+    if life == 0:
+      print("You Died!")
   
   if imagerect.colliderect(Coinrect):
     COINx = random.uniform(20, 280)

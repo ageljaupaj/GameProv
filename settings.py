@@ -1,6 +1,6 @@
 import random
 
-#Background
+#Background, clolors
 background_colour = (35, 35, 35)
 (width, height) = (300, 300)
 

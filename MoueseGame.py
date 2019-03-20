@@ -1,8 +1,10 @@
 import pygame
+import random
+
 from settings import *
 from Sprite import *
 
-
+pygame.init()
                    
 #Game's windowd
 screen = pygame.display.set_mode((width, height))
@@ -10,14 +12,15 @@ pygame.display.set_caption('kot')
 
 playermoving = False
 
+
 running = True
 while running:
   #Ndertimi i lojes(Backgrounds, pngs, rect etc.)
   screen.fill(background_colour)
   screen.blit(character, imagerect)
   screen.blit(turret, turretrect)
-  screen.blit(turret, turretrect2)
-  turretrect2.center = (290, 150)
+  screen.blit(turret2, turretrect2)
+  turretrect2.center = (285, 150)
   screen.blit(Coin, Coinrect)
   Coinrect.center = (COINx, COINy)
   imagerect.center = (x, y)
@@ -25,6 +28,8 @@ while running:
   RedBallrect.center = (RedBAll_x, RedBAll_y)
   RedBallrect_2.center = (RedBall_2_x, RedBall_2_y)
   keys = pygame.key.get_pressed() 
+  
+
   #Perplasia ne mure 
   if x < 10:
     x = x + speed

@@ -23,7 +23,7 @@ RedBAll_x = 150
 RedBAll_y = 35
 
 #RedBall_2 
-RedBall_2_x = 290
+RedBall_2_x = 265
 RedBall_2_y = 150
 
 #Speed

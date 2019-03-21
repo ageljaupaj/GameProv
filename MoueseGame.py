@@ -9,7 +9,7 @@ pygame.init()
                  
 #Game's windowd
 screen = pygame.display.set_mode((width, height))
-pygame.display.set_caption('kot')
+pygame.display.set_caption('Game')
 
 playermoving = False
 #screen.blit(pista, pista_rect)
@@ -25,27 +25,35 @@ running = True
 
 
 while running:
-  if Start_up:
-    screen.fill(background_colour)
-    screen.blit(pista, pista_rect)
-    pista_rect.center = (150, 150)
-    pygame.init()
-    pygame.display.set_caption('Lobby')
-    
-
+  screen.fill(background_colour)
+  if Start_up:   
     for event in pygame.event.get():
       if event.type == pygame.KEYDOWN:
         if event.key == pygame.K_SPACE:
           Start_up = False
+      if event.type == pygame.QUIT:
+        running = False
+
+  elif life == 0:
+    for event in pygame.event.get():
+      if event.type == pygame.KEYDOWN:
+        if event.key == pygame.K_SPACE:
+          life = 3
+          player_3Hp = True
+          player_2Hp = True
+          player_1Hp = True
+          x = 150
+          y = 150
+          RedBAll_x = 150
+          RedBAll_y = 35
+          RedBall_2_x = 265
+          RedBall_2_y = 150
           
       if event.type == pygame.QUIT:
         running = False
-  elif life == 0:
-    print('lina')
-    running = False
-  else: 
+    
+  else:
   #Ndertimi i lojes(Backgrounds, pngs, rect etc.)
-    screen.fill(background_colour)
     screen.blit(character, imagerect)
     screen.blit(turret, turretrect)
     screen.blit(turret2, turretrect2)
@@ -173,17 +181,12 @@ while running:
       screen.blit(FullHeart, FullHeart_rect_3)
       FullHeart_rect_3.center = (60, 20)
     
-    pygame.display.flip()
-    
-          
-
-
-     
   #Game's close
     for event in pygame.event.get():
       if event.type == pygame.QUIT:
         running = False
-        
+  
+  pygame.display.flip()
         
     
 

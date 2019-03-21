@@ -21,10 +21,11 @@ player_1Hp = True
 
 Start_up = True
 Dead = False
-running = False
+running = True
 
 
-while Start_up:
+while running:
+  if Start_up:
     screen.fill(background_colour)
     screen.blit(pista, pista_rect)
     pista_rect.center = (150, 150)
@@ -35,18 +36,14 @@ while Start_up:
     for event in pygame.event.get():
       if event.type == pygame.KEYDOWN:
         if event.key == pygame.K_SPACE:
-          running = True
           Start_up = False
           
-
-
       if event.type == pygame.QUIT:
-        Start_up = False
-
-
-while running:
-  
-  while Dead == False:
+        running = False
+  elif life == 0:
+    print('lina')
+    running = False
+  else: 
   #Ndertimi i lojes(Backgrounds, pngs, rect etc.)
     screen.fill(background_colour)
     screen.blit(character, imagerect)
@@ -163,7 +160,7 @@ while running:
       player_2Hp = False
     if life == 0:
       player_1Hp = False
-      running = False
+      
       
       
     if player_1Hp:

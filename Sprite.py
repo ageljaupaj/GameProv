@@ -1,4 +1,4 @@
-import pygame
+import pygame, sys
 
 #rotate img
 def rot_center(image, rect, angle):
@@ -21,7 +21,8 @@ turret2, turretrect2 = rot_center(turret, turretrect, -90)
 RedBall = pygame.image.load('Sprites/RedBall.png')
 RedBallrect = RedBall.get_rect()
 RedBallrect_2 = RedBall.get_rect()
-
+RedBallrect_2_1 = RedBall.get_rect()
+RedBallrect_2_2 = RedBall.get_rect()
 
 #Coin
 Coin = pygame.image.load('Sprites/Coin.png')

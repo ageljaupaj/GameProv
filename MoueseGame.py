@@ -19,7 +19,7 @@ def get_direction():
                  
 #Game's windowd
 screen = pygame.display.set_mode((width, height))
-pygame.display.set_caption('Game')
+pygame.display.set_caption('GAME')
 
 playermoving = False
 #screen.blit(pista, pista_rect)

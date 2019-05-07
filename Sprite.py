@@ -28,9 +28,6 @@ RedBallrect_2_2 = RedBall.get_rect()
 Coin = pygame.image.load('Sprites/Coin.png')
 Coinrect = Coin.get_rect()
 
-#map
-pista = pygame.image.load('Sprites/Map000.jpg')
-pista_rect = pista.get_rect()
 
 #Heart and empty heart
 FullHeart = pygame.image.load('Sprites/HeartFull.png')

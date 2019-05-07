@@ -1,10 +1,20 @@
 import pygame, sys
 import random
+import math
 
 from settings import *
 from Sprite import *
 
 pygame.init()
+
+
+def get_direction():
+  lx = x - RedBAll_x
+  ly = y - RedBAll_y
+  l = math.sqrt(math.pow(lx, 2) + math.pow(ly, 2))
+  direction_x = lx/l * 0.07
+  direction_y = ly/y * 0.07
+  return(direction_x, direction_y)
 
                  
 #Game's windowd
@@ -27,16 +37,16 @@ running = True
 while running:
   screen.fill(background_colour)
   if Start_up:
-    screen.blit(pista, pista_rect) 
+     
     for event in pygame.event.get():
-      if event.type == pygame.KEYDOWN:
+      if event.type == pygame.KEYDOWN: 
         if event.key == pygame.K_SPACE:
           Start_up = False
       if event.type == pygame.QUIT:
         running = False
 
   elif life == 0:
-    screen.blit(pista, pista_rect)
+    
     for event in pygame.event.get():
       if event.type == pygame.KEYDOWN:
         if event.key == pygame.K_SPACE:
@@ -93,14 +103,22 @@ while running:
   #RedBallat
     if playermoving:
       screen.blit(RedBall, RedBallrect)
-      RedBAll_y = RedBAll_y + ball_speed
-      screen.blit(RedBall, RedBallrect_2)
-      RedBall_2_x = RedBall_2_x - ball_speed
       screen.blit(RedBall, RedBallrect_2_1)
       screen.blit(RedBall, RedBallrect_2_2)
+      screen.blit(RedBall, RedBallrect_2)
+
+      if running_func:
+        direction = get_direction()
+        running_func = False
+     
+      RedBAll_y = RedBAll_y + direction[1]
+      RedBAll_x = RedBAll_x + direction[0]
+      
       RedBall_2_x = RedBall_2_x - ball_speed
+
       RedBall_2_x_1 = RedBall_2_x_1 - ball_speed
       RedBall_2_x_2 = RedBall_2_x_2 - ball_speed
+
       RedBall_2_y_1 = RedBall_2_y_1 - ball_sec_speed 
       RedBall_2_y_2 = RedBall_2_y_2 + ball_sec_speed 
       
@@ -136,15 +154,19 @@ while running:
     if RedBAll_y > 310:
       RedBAll_x = 150
       RedBAll_y = 35
+      running_func = True
     if RedBAll_y < -10:
       RedBAll_x = 150
       RedBAll_y = 35
+      running_func = True
     if RedBAll_x < -10:
       RedBAll_x = 150
       RedBAll_y = 35
+      running_func = True
     if RedBAll_x > 310:
       RedBAll_x = 150
       RedBAll_y = 35
+      running_func = True
     
     if RedBall_2_y > 310:
       RedBall_2_x = 265
@@ -207,8 +229,8 @@ while running:
       life = life - 1
   
     if imagerect.colliderect(Coinrect):
-      COINx = random.uniform(20, 280)
-      COINy = random.uniform(20, 280)
+      COINx = random.uniform(40, 260)
+      COINy = random.uniform(40, 260)
       score = score + 1
     
   #Jeta

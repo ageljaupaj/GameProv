@@ -17,8 +17,8 @@ y = 150
 life = 3
 
 #Coin
-COINx = random.uniform(20, 280)
-COINy = random.uniform(20, 280)
+COINx = random.uniform(40, 260)
+COINy = random.uniform(40, 260)
 
 #Score
 score = 0
@@ -40,5 +40,6 @@ ball_speed = 0.035
 speed = 0.03
 ball_sec_speed = 0.01
 
+running_func = True
 
 
